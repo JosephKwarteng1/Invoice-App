@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Spartanblack";
+  src: local("Spartanblack"),
+    url("./assets/fonts/Spartan-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpartanBold";
+  src: local("SpartanBold"),
+    url("./assets/fonts/Spartan-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SpartanRegular";
+  src: local("SpartanRegular"),
+    url("./assets/fonts/Spartan-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Spartanlight";
+  src: local("Spartanlight"),
+    url("./assets/fonts/Spartan-Light.ttf") format("truetype");
+}
+
+:root {
+  --primary-color: #373b53;
+  --secondary-color: #7c5dfa;
+  --secondary-color-opacity: #9277ff;
+  --font-color-purple: #888eb0;
+  --font-color-black: #0c0e16;
+  --bg-color: #f8f8fb;
+  --card-color: #ffffff;
+  --card-color2: #f9fafe;
+  --card-color3: #373b53;
+  --box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  --edit-color: #f9fafe;
+  --delete-color: #ec5757;
+  --mark-color: #7c5dfa;
+  --input-box-color: #ffffff;
+  --input-box-border: #dfe3fa;
+  --modal-color: #ffffff;
+  --add-item-button-bg: #f9fafe;
+  --add-item-button-color: #7e88c3;
+  --date-icon-color: light;
+}
+[data-theme="dark"] {
+  --primary-color: #373b53;
+  --secondary-color: #7c5dfa;
+  --secondary-color-opacity: #9277ff;
+  --font-color-light: #dfe3fa;
+  --font-color-white: #ffffff;
+  --font-color-status: #dfe3fa11;
+  --bg-color: #141625;
+  --card-color: #1e2139;
+  --card-color2: #252945;
+  --card-color3: #0c0e16;
+  --box-shadow: 0px 10px 10px -10px rgba(43, 45, 62, 0.1);
+  --edit-color: #252945;
+  --delete-color: #ec5757;
+  --mark-color: #7c5dfa;
+  --input-box-color: #1e2139;
+  --input-box-border: #252945;
+  --modal-color: #141625;
+  --add-item-button-bg: #252945;
+  --add-item-button-color: #ffffff;
+  --date-icon-color: dark;
+}
+
+body {
+  margin: 0;
+  font-family: "SpartanRegular";
+  background: var(--bg-color);
+}

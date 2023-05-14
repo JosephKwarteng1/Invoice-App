@@ -1,0 +1,55 @@
+.invoice-card {
+  width: calc(100vw / 2);
+  padding: 10px 32px;
+  background: var(--card-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.invoice-total {
+  color: var(--font-color-white);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: "SpartanBold";
+  text-align: right;
+}
+
+.invoice-text {
+  font-size: 12px;
+  line-height: 15px;
+  color: #888eb0;
+  text-align: left;
+}
+
+.invoice-id {
+  font-family: "SpartanBold";
+  color: var(--font-color-white);
+}
+
+.responsive-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 37px;
+}
+
+@media only screen and (max-width: 767px) {
+  .invoice-card {
+    width: calc(100vw - 100px);
+    overflow: hidden;
+  }
+  .responsive-card {
+    display: inline;
+  }
+  .arrow-right {
+    display: none;
+  }
+}
