@@ -1,67 +1,70 @@
-.card-container {
-  position: absolute;
-  width: 980px;
-  top: 5;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
-  border-radius: 8px;
-}
-/* .buttons-container {
+.card-container .buttons-container {
   width: 730px;
-  height: 88px;
-  left: 355px;
-  top: 10px;
-
-  background: #ffffff;
+  height: 100px;
+  background: var(--card-color);
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
   border-radius: 8px;
-} */
-.edit-button,
-.delete-button,
-.mark-paid-button {
-  background-color: #7c5dfa;
-  color: white;
-  border-radius: 24px;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  /* position: absolute; */
-  /* left: 100px;
-  top: 5px;
+  margin: auto auto;
+  margin-top: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center; */
+  justify-content: space-between;
+  padding: 0px 20px;
+  align-items: center;
+  gap: 20px;
+}
+.status-section {
+  display: flex;
+  gap: 10px;
+}
+.buttons-section {
+  display: flex;
+  gap: 10px;
 }
 
 .edit-button {
   background-color: #f9fafe;
   color: #7e88c3;
   border-radius: 24px;
-  padding: 10px;
+  padding: 15px 30px;
+  font-family: "SpartanBold";
   cursor: pointer;
-  width: 73px;
-  height: 48px;
-  position: absolute;
-  left: 560px;
-  top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.btn-gray {
+  background-color: #f9fafe;
+  color: #7e88c3;
+  width: 10%;
+  padding: 10px 20px;
+  border-radius: 49px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  margin-top: 40px;
+}
+.btn-red {
+  background-color: #ec5757;
+  color: white;
+  width: 10%;
+  padding: 15px 30px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: none;
+  margin-left: 120px;
+  display: inline-block;
+  margin-top: 40px;
+}
+
 .delete-button {
   background-color: #ec5757;
   color: white;
-  border-radius: 34px;
-  padding: 10px;
+  border-radius: 40px;
+  padding: 15px 30px;
+  font-family: "SpartanBold";
   cursor: pointer;
-  width: 89px;
-  height: 48px;
-  position: absolute;
-  left: 650px;
-  top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,13 +74,9 @@
   background-color: #7c5dfa;
   color: white;
   border-radius: 54px;
-  padding: 10px;
+  padding: 15px 30px;
+  font-family: "SpartanBold";
   cursor: pointer;
-  width: 150px;
-  height: 48px;
-  position: absolute;
-  left: 770px;
-  top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,17 +84,12 @@
 
 .invoice-container {
   width: 40%;
-  margin: 120px auto 0;
-  background: #ffffff;
-  background-color: white;
+  margin: 20px auto 0;
+  background: var(--card-color);
   border-radius: 20 px;
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  padding-bottom: 35px;
 }
-
-/* .header {
-  display: flex;
-  justify-content: space-between;
-} */
 
 .header-left {
   font-weight: 700;
@@ -104,7 +98,7 @@
   padding-left: 40px;
   padding-top: 30px;
   letter-spacing: -0.8px;
-  color: #0c0e16;
+  color: var(--font-color-white);
 }
 .invoice-category {
   font-style: normal;
@@ -112,19 +106,22 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
-
+.invoice-detail {
+  display: flex;
+  justify-content: space-between;
+}
 .header-right {
   text-align: right;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 18px;
+  /* line-height: 18px; */
   padding-right: 40px;
-  padding-top: 30px;
+  padding-top: 10px;
   letter-spacing: -0.229167px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .sent-to-email {
   font-style: normal;
@@ -132,7 +129,7 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.3125px;
-  color: #0c0e16;
+  color: var(--font-color-white);
 }
 .invoice-date {
   font-style: normal;
@@ -141,7 +138,24 @@
   line-height: 12px;
   letter-spacing: -0.25px;
   padding-left: 40px;
-  color: #7e88c3;
+  color: var(--font-color-white);
+}
+.payment-date {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.25px;
+  padding-left: 3px;
+  color: var(--font-color-white);
+}
+.payment-due {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.3125px;
+  color: var(--font-color-white);
 }
 .sent-to {
   font-style: normal;
@@ -149,8 +163,8 @@
   font-size: 12px;
   line-height: 12px;
   letter-spacing: -0.25px;
-  padding-right: 40px;
-  color: #7e88c3;
+  padding-right: 100px;
+  color: var(--font-color-white);
 }
 
 .bill-info {
@@ -167,7 +181,7 @@
   font-size: 12px;
   line-height: 12px;
   letter-spacing: -0.229167px;
-  color: #7e88c3;
+  color: var(--font-color-white);
   text-align: start;
   margin: 0 auto;
 }
@@ -178,33 +192,35 @@
   font-size: 16px;
   line-height: 12px;
   letter-spacing: -0.3125px;
-  color: #0c0e16;
+  color: var(--font-color-white);
 }
 .small-container {
-  width: 80%;
+  width: 90%;
   left: 6.58%;
   right: 6.58%;
   top: 40.55%;
   bottom: 20.29%;
   justify-content: center;
-  background: #f9fafe;
+  background: var(--card-color2);
   border-radius: 8px 8px 0px 0px;
   margin: 0 auto;
 }
 
 .mini-container {
-  background: #373b53;
+  background: var(--card-color3);
   border-radius: 0px 0px 8px 8px;
   height: 100px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 .item-header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   font-weight: light;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 
 .item-row {
@@ -218,8 +234,9 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  text-align: end;
   padding-left: 20px;
-  color: #0c0e16;
+  color: var(--font-color-white);
 }
 .qty-one {
   font-style: normal;
@@ -227,16 +244,18 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  text-align: end;
+  color: var(--font-color-white);
 }
 .price-one {
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
+  text-align: end;
   text-align: right;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .total-one {
   font-style: normal;
@@ -245,7 +264,8 @@
   line-height: 15px;
   text-align: right;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  text-align: end;
+  color: var(--font-color-white);
   padding-right: 20px;
 }
 .item-two {
@@ -254,7 +274,7 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--font-color-white);
   padding-left: 20px;
 }
 .qty-two {
@@ -263,7 +283,7 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .price-two {
   font-style: normal;
@@ -272,7 +292,7 @@
   line-height: 15px;
   text-align: right;
   letter-spacing: -0.25px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .total-two {
   font-style: normal;
@@ -281,27 +301,10 @@
   line-height: 15px;
   text-align: right;
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--font-color-white);
   padding-right: 20px;
 }
 
-.payment-due {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 15px;
-  right: 15.31%;
-  letter-spacing: -0.25px;
-  color: #7e88c3;
-}
-.payment-date {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 20px;
-  letter-spacing: -0.3125px;
-  color: #0c0e16;
-}
 .bill-to-address {
   font-style: normal;
   font-weight: 500;
@@ -309,7 +312,7 @@
   line-height: 18px;
   letter-spacing: -0.229167px;
   text-align: start;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 
 .bill-to-city {
@@ -319,7 +322,7 @@
   line-height: 18px;
   text-align: start;
   letter-spacing: -0.229167px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 
 .bill-to-postal-code {
@@ -329,7 +332,7 @@
   line-height: 18px;
   text-align: start;
   letter-spacing: -0.229167px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .bill-to-country {
   font-style: normal;
@@ -338,7 +341,7 @@
   line-height: 18px;
   text-align: start;
   letter-spacing: -0.229167px;
-  color: #7e88c3;
+  color: var(--font-color-white);
 }
 .current-date {
   font-style: normal;
@@ -346,46 +349,39 @@
   font-size: 17px;
   line-height: 20px;
   letter-spacing: -0.3125px;
-  color: #0c0e16;
+  color: var(--font-color-white);
 }
-.total-amount {
-  height: 18px;
-  left: 5.05%;
-  right: 83.75%;
+.amount-section {
   top: calc(50% - 18px / 2);
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 18px;
-  letter-spacing: -0.229167px;
-  color: #ffffff;
+  color: #ffff;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4%;
 }
-.amount-due {
-  display: inline-block;
-  height: 32px;
-  left: 76.03%;
-  right: 5.05%;
-  top: calc(50% - 32px / 2);
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 700;
+
+.total {
+  text-align: center;
+  font-family: "SpartanBold";
   font-size: 24px;
-  line-height: 32px;
-  text-align: right;
-  letter-spacing: -0.5px;
-  color: #ffffff;
+  font-style: bold;
+  color: var(--font-color-white);
 }
+.status {
+  color: var(--font-color-white);
+}
+
 .pending-buttton {
-  background-color: #3d12bf;
+  background-color: #ff8f0020;
   color: #ff8f00;
-  border-radius: 35px;
+  border-radius: 6px;
   padding: 10px;
   cursor: pointer;
   width: 100px;
   height: 25px;
   left: 100px;
   top: 10px;
+  font-family: "SpartanBold";
   display: flex;
   justify-content: center;
   align-items: center;
@@ -442,29 +438,3 @@
   background-color: #ec5757;
   color: #ffffff;
 }
-/*.cancel-button.blue {
-  position: absolute;
-  height: 15px;
-  left: 26.37%;
-  right: 15.27%;
-  top: 57%;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  color: #7e88c3;
-  border: none;
-}
-edit-button:hover,
-.delete-button:hover,
-.mark-paid-button:hover {
-  opacity: 0.8;
-}
-.delete-button:hover {
-  background-color: #b30000;
-}
-
-.mark-paid-button:hover {
-  background-color: #4d2d91;
-} */

@@ -1,17 +1,10 @@
 .invoice-button {
   background-color: #7c5dfa;
   color: white;
-  border-radius: 54px;
-  padding: 10px;
+  border-radius: 100px;
+  /* padding: 10px; */
   cursor: pointer;
-  width: 150px;
-  height: 48px;
-  position: absolute;
-  left: 1299px;
-  top: 10px;
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
 }
 
 .invoice-button::before {
@@ -20,8 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 45px;
-  height: 45px;
   background-color: white;
   color: #7c5dfa;
   border-radius: 50%;
@@ -50,14 +41,6 @@
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
 }
-
-/* .filter-by-status svg.open {
-  transform: rotate(180deg);
-} */
-/* .status-filter {
-  position: absolute;
-  width: 118px;
-  height: 15px;
-  left: 777px;
-  top: 94px;
-} */
+.new-invoice {
+  justify-content: center;
+}

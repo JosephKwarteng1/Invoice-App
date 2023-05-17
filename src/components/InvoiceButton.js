@@ -14,10 +14,10 @@ const InvoiceButton = ({ onClick }) => {
 
   return (
     <div className="button-container">
-      <div onClick={handleNewInvoiceClick} className="invoice-button">
-        New Invoice
-      </div>
-      <div className="filter-by-status">
+      {/* <div onClick={handleNewInvoiceClick} className="invoice-button">
+        <p className="new-invoice">New Invoice</p>
+      </div> */}
+      {/* <div className="filter-by-status">
         <span>Filter by status</span>
         <svg viewBox="0 0 20 20">
           <path d="M2.5,7.5 L10,15 L17.5,7.5"></path>
@@ -28,7 +28,7 @@ const InvoiceButton = ({ onClick }) => {
           <option value="paid">Paid</option>
           <option value="pending">Pending</option>
         </select>
-      </div>
+      </div> */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">

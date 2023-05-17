@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SideNav.css";
-import Avatar from "../assets/favicon-32x32.png";
+import Avatar from "../assets/image-avatar.jpg";
 import IconSun from "../assets/icon-sun.svg";
 import IconMoon from "../assets/icon-moon.svg";
 import Logo from "../assets/logo.svg";

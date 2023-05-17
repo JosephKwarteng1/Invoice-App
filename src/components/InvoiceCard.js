@@ -1,5 +1,6 @@
 import React from "react";
 import "./InvoiceCard.css";
+import Arrow from "../assets/icon-arrow-right.svg";
 import { useNavigate } from "react-router-dom";
 
 const InvoiceCard = ({ invoice }) => {
@@ -9,13 +10,23 @@ const InvoiceCard = ({ invoice }) => {
   };
   return (
     <div className="invoice-card" onClick={handleClick}>
-      <h6> {invoice.id} </h6>
-      <p> {invoice.paymentDue} </p>
-      <p> {invoice.clientName} </p>
+      <h6 className="invoice-id"> #{invoice.id} </h6>
+      <p className="invoice-payment"> {invoice.paymentDue} </p>
+      <p className="invoice-name"> {invoice.clientName} </p>
       <h4 className="invoice-total"> £{invoice.total} </h4>
-      <span className={`status ${invoice.status.toLowerCase()}`}>
-        {invoice.status}
+      <span
+        className={`invoice-status ${
+          invoice.status.toLowerCase() === "paid"
+            ? "paid"
+            : invoice.status.toLowerCase() === "draft"
+            ? "draft"
+            : "pending"
+        }`}
+      >
+        <span className="dot"></span>
+        {` ${invoice.status.toLowerCase()}`}
       </span>
+      <img src={Arrow} alt="arrow-right" />
     </div>
   );
 };

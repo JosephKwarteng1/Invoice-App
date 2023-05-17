@@ -18,18 +18,74 @@
   line-height: 24px;
   font-weight: 700;
   font-family: "SpartanBold";
-  text-align: right;
+  text-align: left;
+}
+.invoice-status.pending {
+  background-color: #ff8f0018;
+  color: #ff8f00;
+  /* margin-left: 220px; */
 }
 
-.invoice-text {
+.invoice-status.paid {
+  background-color: #33d69f18;
+  color: #33d69f;
+  /* margin-left: 220px; */
+}
+
+.invoice-status.draft {
+  background-color: #00000018;
+  color: var(--invoice-status-draft);
+  /* margin-left: 220px; */
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.invoice-status.pending .dot {
+  background-color: #ff8f00;
+}
+
+.invoice-status.paid .dot {
+  background-color: #33d69f;
+}
+
+.invoice-status.draft .dot {
+  background-color: #000000;
+  background-color: var(--invoice-status-draft-dot);
+}
+
+.invoice-status {
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 25px;
+  left: 150px;
+  top: 10px;
+  font-family: "SpartanBold";
+  display: flex;
+  text-transform: capitalize;
+  justify-content: center;
+  align-items: center;
+}
+
+.invoice-payment {
   font-size: 12px;
   line-height: 15px;
   color: #888eb0;
-  text-align: left;
+}
+.invoice-name {
+  font-size: 12px;
+  line-height: 15px;
+  color: #888eb0;
 }
 
 .invoice-id {
   font-family: "SpartanBold";
+  font-size: small;
   color: var(--font-color-white);
 }
 

@@ -40,6 +40,10 @@
   --add-item-button-bg: #f9fafe;
   --add-item-button-color: #7e88c3;
   --date-icon-color: light;
+  --dot-color1: #33d69f;
+  --invoice-status-draft-dot: #000000;
+  --invoice-filter-color: #0c0e16;
+  --drop-down-color1: #fff;
 }
 [data-theme="dark"] {
   --primary-color: #373b53;
@@ -62,6 +66,11 @@
   --add-item-button-bg: #252945;
   --add-item-button-color: #ffffff;
   --date-icon-color: dark;
+  --invoice-status-draft-dot: #dfe3fa;
+  --invoice-status-draft: #dfe3fa;
+  --invoice-filter-color2: #ffffff;
+  --drop-down-color: #252945;
+  --drop-down-text-color: #ffffff;
 }
 
 body {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import SideNav from "../components/SideNav";
-// import EditInvoiceModal from "./EditInvoiceModal";
+import Arrow from "../assets/icon-arrow-left.svg";
+import Modal from "./Modal";
 import "./ViewInvoice.css";
 
 const ViewInvoice = () => {
@@ -15,7 +16,10 @@ const ViewInvoice = () => {
   const handleCancel = () => {
     setShowModal(false);
   };
-
+  const [showEditModal, setShowEditModal] = useState(false);
+  const handleEditModal = () => {
+    setShowEditModal(!showEditModal);
+  };
   return (
     <div>
       {showModal && (
@@ -26,49 +30,66 @@ const ViewInvoice = () => {
               Are you sure you want to delete invoice #XM9141? This action
               cannot be undone.
             </p>
-            <div className="modal-buttons">
-              <div className="cancel-button blue " onClick={handleCancel}>
+            <div className="modal-btn">
+              <div className="btn-gray " onClick={handleCancel}>
                 Cancel
               </div>
-              <button className="delete-button red" onClick={handleDelete}>
+              <div className="btn-red" onClick={handleDelete}>
                 Delete
-              </button>
+              </div>
             </div>
           </div>
         </div>
       )}
-      <SideNav />
-      {/* <EditInvoiceModal /> */}
+      {/* <SideNav /> */}
+
+      <p className="back-arrow"></p>
+      <img src={Arrow} />
+      <span className="go-back">Go back</span>
+
       <div className="card-container">
         <div className="buttons-container">
-          {/* <p>Status</p> */}
-          {/* <div className="pending-buttton">Pending</div> */}
-          <div className="edit-button">Edit</div>
-          <div className="delete-button" onClick={() => setShowModal(true)}>
-            Delete
+          <div className="status-section">
+            <p className="status">Status</p>
+            {/* <span className="dot"></span> */}
+            <span className="dot"></span>
+            <div className="pending-buttton">Pending</div>
           </div>
-          <div className="mark-paid-button">Mark as Paid</div>
+          <div className="buttons-section">
+            <div className="edit-button">Edit</div>
+            <div className="delete-button" onClick={() => setShowModal(true)}>
+              Delete
+            </div>
+
+            <div className="mark-paid-button">Mark as Paid</div>
+          </div>
         </div>
       </div>
+
       <div className="invoice-container">
         <div className="header">
           <div className="header-left">
-            <h1 className="invoice-id">{state.id}</h1>
-            <div>
-              <p className="invoice-category">Graphic Design</p>
+            <div className="invoice-detail">
+              <div>
+                <h1 className="invoice-id">#{state.id}</h1>
+                <p className="invoice-category">Graphic Design</p>
+              </div>
+
+              <div className="header-right">
+                <p className="invoice-street">{state.senderAddress.street}</p>
+                <p className="invoice-city">{state.senderAddress.city}</p>
+                <p className="postal-code">{state.senderAddress.postCode}</p>
+                <p className="invoice-country">{state.senderAddress.country}</p>
+              </div>
             </div>
-          </div>
-          <div className="header-right">
-            <p className="invoice-portfolio">{state.address}</p>
-            <p className="invoice-city">{state.city}</p>
-            <p className="postal-code">{state.postalCode}</p>
-            <p className="invoice-country">{state.country}</p>
           </div>
         </div>
         <div className="bill-info">
           <div className="invoice-date">
             <p>Invoice Date</p>
-            <h4 className="current-date">{state.date}</h4>
+            <h4 className="current-date">{state.createdAt}</h4>
+            <p className="payment-date">Payment Due</p>
+            <h4 className="payment-due">{state.paymentDue}</h4>
           </div>
           <div className="bill-to">
             <p>Bill To</p>
@@ -109,11 +130,10 @@ const ViewInvoice = () => {
             </div>
           </div>
         </div>
-        <div className="mini-container" />
-        <div>
-          <p className="amount-due">Amount Due</p>
-          <div className="total-amount">
-            <h3>{state.total}</h3>
+        <div className="mini-container">
+          <div className="amount-section">
+            <span>Amount due</span>
+            <span className="total"> £{state.total}</span>
           </div>
         </div>
       </div>
