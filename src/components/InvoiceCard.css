@@ -11,6 +11,11 @@
   margin-bottom: 16px;
   cursor: pointer;
 }
+.invoice-card:hover {
+  border: 1px solid #7c5dfa;
+  border-radius: 8px;
+  transition: ease-in-out;
+}
 
 .invoice-total {
   color: var(--font-color-white);

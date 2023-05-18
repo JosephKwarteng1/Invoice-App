@@ -15,6 +15,7 @@
 .go-back {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .arrow-img {
@@ -29,8 +30,11 @@
   margin-left: 30px;
   margin-top: 30px;
   color: var(--go-back-text2);
+  cursor: pointer;
 }
-
+.go-back-text:hover {
+  color: var(--back-text-color);
+}
 .status-section {
   display: flex;
   gap: 10px;
@@ -51,7 +55,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.edit-button:hover {
+  background-color: #dfe3fa;
+  transition: ease-in-out;
+}
 .btn-gray {
   background-color: #f9fafe;
   color: #7e88c3;
@@ -88,7 +95,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.delete-button:hover {
+  background-color: #ff9797;
+  transition: ease-in-out;
+}
 .mark-paid-button {
   background-color: #7c5dfa;
   color: white;
@@ -100,7 +110,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.mark-paid-button:hover {
+  background-color: #9277ff;
+  transition: ease-in-out;
+}
 .invoice-container {
   width: 40%;
   margin: 20px auto 0;
@@ -302,6 +315,7 @@
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  text-align: end;
   color: var(--font-color-white);
 }
 .price-two {
@@ -456,4 +470,105 @@
   border: none;
   background-color: #ec5757;
   color: #ffffff;
+}
+.bill-from {
+  top: calc(50% - 15px / 2 - 97px);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 5px;
+  letter-spacing: -0.25px;
+  color: #7c5dfa;
+}
+.street-address {
+  top: calc(50% - 15px / 2 - 29px);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7e88c3;
+  margin-left: 30px;
+}
+.input-area {
+  background: #ffffff;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 50px;
+  width: 650px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 500px;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group .input-area {
+  height: 40px;
+}
+
+.form-group .city-text-area {
+  width: 70%;
+}
+
+.form-group .bill-from {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.form-group .bill-to {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
 }

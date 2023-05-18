@@ -3,60 +3,198 @@ import { useLocation } from "react-router-dom";
 import SideNav from "../components/SideNav";
 import ArrowLeft from "../assets/icon-arrow-left.svg";
 import Modal from "./Modal";
+import "./Modal.css";
 import "./ViewInvoice.css";
 
 const ViewInvoice = () => {
   const { state } = useLocation();
-  const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const handleDelete = () => {
-    // handle delete logic here
-    setShowModal(false);
-  };
-
-  const handleCancel = () => {
-    setShowModal(false);
-  };
-
   const handleEditModal = () => {
-    setShowEditModal(!showEditModal);
+    setShowEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
   };
 
   const goBack = () => {
     window.history.back();
   };
-  const invoice = state;
 
+  const handleSaveChanges = () => {
+    // Handle saving changes logic here
+    setShowEditModal(false);
+  };
+
+  const invoice = state;
   return (
     <div>
-      {showModal && (
-        <div className="modal-background">
-          <div className="delete-modal">
-            <h4 className="confirmation">Confirm Deletion</h4>
-            <p className="modal-text">
-              Are you sure you want to delete invoice #XM9141? This action
-              cannot be undone.
-            </p>
-            <div className="modal-btn">
-              <div className="btn-gray " onClick={handleCancel}>
-                Cancel
-              </div>
-              <div className="btn-red" onClick={handleDelete}>
-                Delete
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       <SideNav />
+      {showEditModal && (
+        <Modal show={showEditModal} handleClose={handleCloseEditModal}>
+          <h2>Edit #{invoice.id} </h2>
+          <form>
+            <div className="form-group">
+              <div>
+                <span className="bill-from">Bill From</span>
+              </div>
+              <div>
+                <label htmlFor="billFromStreet" className="street-address">
+                  Street Address
+                </label>
+              </div>
+              <input
+                className="input-area"
+                type="text"
+                id="billFromStreet"
+                name="billFromStreet"
+                defaultValue="19 Union Terrace"
+              />
+            </div>
 
+            <div className="form-group">
+              <label htmlFor="billFromCity">
+                <span className="city"> City </span>
+              </label>
+              <input
+                className="city-text-area"
+                type="text"
+                id="billFromCity"
+                name="billFromCity"
+                defaultValue="London"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billFromPostCode">
+                <span> Post Code </span>
+              </label>
+              <input
+                type="text"
+                id="billFromPostCode"
+                name="billFromPostCode"
+                defaultValue="E1 3EZ"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billFromCountry">
+                {" "}
+                <span> Country </span>{" "}
+              </label>
+              <input
+                type="text"
+                id="billFromCountry"
+                name="billFromCountry"
+                defaultValue="United Kingdom"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToName">
+                {" "}
+                <span> Bill To </span>
+                <span> Client's Name </span>
+              </label>
+              <input
+                type="text"
+                id="billToName"
+                name="billToName"
+                defaultValue="Alex Grim"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToEmail">
+                {" "}
+                <span> Client's Email </span>{" "}
+              </label>
+              <input
+                type="email"
+                id="billToEmail"
+                name="billToEmail"
+                defaultValue="alexgrim@mail.com"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToStreet">
+                {" "}
+                <span> Street Address </span>{" "}
+              </label>
+              <input
+                type="text"
+                id="billToStreet"
+                name="billToStreet"
+                defaultValue="84 Church Way"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToCity">
+                {" "}
+                <span> City</span>
+              </label>
+              <input
+                type="text"
+                id="billToCity"
+                name="billToCity"
+                defaultValue="Bradford"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToPostCode">
+                {" "}
+                <span> Post Code</span>{" "}
+              </label>
+              <input
+                type="text"
+                id="billToPostCode"
+                name="billToPostCode"
+                defaultValue="BD1 9PB"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="billToCountry">
+                {" "}
+                <span> country </span>{" "}
+              </label>
+              <input
+                type="text"
+                id="billToCountry"
+                name="billToCountry"
+                defaultValue="United Kingdom"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="invoiceDate">Invoice Date</label>
+              <input
+                type="text"
+                id="invoiceDate"
+                name="invoiceDate"
+                defaultValue="21 Aug 2021"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="paymentTerms">Payment Terms</label>
+              <input
+                type="text"
+                id="paymentTerms"
+                name="paymentTerms"
+                defaultValue="Net 30 Days"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="projectDescription">Project / Description</label>
+              <textarea
+                id="projectDescription"
+                name="projectDescription"
+                defaultValue="Lorem Ipsum Dolor"
+              />
+            </div>
+          </form>
+          <button onClick={handleSaveChanges}>Save Changes</button>
+        </Modal>
+      )}
       <div className="go-back" onClick={goBack}>
         <img className="arrow-img" src={ArrowLeft} alt="Go back" />
         <p className="go-back-text">Go back</p>
       </div>
-
       <div className="card-container">
         <div className="buttons-container">
           <div className="status-section">
@@ -76,16 +214,16 @@ const ViewInvoice = () => {
           </div>
 
           <div className="buttons-section">
-            <div className="edit-button">Edit</div>
-            <div className="delete-button" onClick={() => setShowModal(true)}>
-              Delete
+            <div className="edit-button" onClick={handleEditModal}>
+              Edit
             </div>
+
+            <div className="delete-button">Delete</div>
 
             <div className="mark-paid-button">Mark as Paid</div>
           </div>
         </div>
       </div>
-
       <div className="invoice-container">
         <div className="header">
           <div className="header-left">
