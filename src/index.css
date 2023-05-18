@@ -44,6 +44,9 @@
   --invoice-status-draft-dot: #000000;
   --invoice-filter-color: #0c0e16;
   --drop-down-color1: #fff;
+  --go-back-text1: #0c0e16;
+  --empty-invoice-text1: #0c0e16;
+  --create-invoice-text2: #888eb0;
 }
 [data-theme="dark"] {
   --primary-color: #373b53;
@@ -71,6 +74,9 @@
   --invoice-filter-color2: #ffffff;
   --drop-down-color: #252945;
   --drop-down-text-color: #ffffff;
+  --go-back-text2: #ffffff;
+  --empty-invoice-text2: #ffffff;
+  --create-invoice-text2: #dfe3fa;
 }
 
 body {

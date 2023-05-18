@@ -5,13 +5,32 @@
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
   border-radius: 8px;
   margin: auto auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
   align-items: center;
   gap: 20px;
 }
+.go-back {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-img {
+  vertical-align: middle;
+  margin-left: 575px;
+  margin-top: 15px;
+}
+
+.go-back-text {
+  font-family: "SpartanBold";
+  display: inline;
+  margin-left: 30px;
+  margin-top: 30px;
+  color: var(--go-back-text2);
+}
+
 .status-section {
   display: flex;
   gap: 10px;

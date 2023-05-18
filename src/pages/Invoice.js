@@ -30,8 +30,10 @@ const Invoice = () => {
     <>
       {/* <InvoiceCard /> */}
       <SideNav />
+      {/* <p className="total-invoice">There are 7 invoices</p> */}
       <div className="main-container">
         <h1 className="title">Invoices</h1>
+
         <p className="invoice-filter">Filter by status</p>
         <img
           className="filter-arrow"
@@ -55,7 +57,7 @@ const Invoice = () => {
             </li>
             <li>
               <label>
-                <input type="checkbox" name="status" value="paid" />
+                <input type="check" name="status" value="paid" />
                 Paid
               </label>
             </li>
@@ -63,8 +65,6 @@ const Invoice = () => {
         )}
         <p className="invoice-actions">New Invoice</p>
       </div>
-
-      {/* <p className="total-invoice">There are 7 invoices</p> */}
 
       <InvoiceButton />
 
@@ -74,7 +74,20 @@ const Invoice = () => {
             <InvoiceCard key={invoice.id} invoice={invoice} />
           ))
         ) : (
-          <img className="empty-invoice" src={EmptyInvoice} alt="No invoices" />
+          <div className="empty-invoice-container">
+            <img
+              className="empty-invoice"
+              src={EmptyInvoice}
+              alt="No invoices"
+            />
+            <p className="empty-invoice-text">There is nothing here</p>
+            <p className="create-invoice-text">
+              {" "}
+              Create an invoice by clicking the <br></br>
+              <strong>New Invoice </strong>
+              button and get started
+            </p>
+          </div>
         )}
       </div>
     </>

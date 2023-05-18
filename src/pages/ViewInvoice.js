@@ -1,25 +1,33 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import SideNav from "../components/SideNav";
-import Arrow from "../assets/icon-arrow-left.svg";
+import ArrowLeft from "../assets/icon-arrow-left.svg";
 import Modal from "./Modal";
 import "./ViewInvoice.css";
 
 const ViewInvoice = () => {
   const { state } = useLocation();
   const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const handleDelete = () => {
     // handle delete logic here
     setShowModal(false);
   };
+
   const handleCancel = () => {
     setShowModal(false);
   };
-  const [showEditModal, setShowEditModal] = useState(false);
+
   const handleEditModal = () => {
     setShowEditModal(!showEditModal);
   };
+
+  const goBack = () => {
+    window.history.back();
+  };
+  const invoice = state;
+
   return (
     <div>
       {showModal && (
@@ -41,20 +49,32 @@ const ViewInvoice = () => {
           </div>
         </div>
       )}
-      {/* <SideNav /> */}
 
-      <p className="back-arrow"></p>
-      <img src={Arrow} />
-      <span className="go-back">Go back</span>
+      <SideNav />
+
+      <div className="go-back" onClick={goBack}>
+        <img className="arrow-img" src={ArrowLeft} alt="Go back" />
+        <p className="go-back-text">Go back</p>
+      </div>
 
       <div className="card-container">
         <div className="buttons-container">
           <div className="status-section">
             <p className="status">Status</p>
-            {/* <span className="dot"></span> */}
-            <span className="dot"></span>
-            <div className="pending-buttton">Pending</div>
+            <span
+              className={`invoice-status ${
+                invoice.status.toLowerCase() === "paid"
+                  ? "paid"
+                  : invoice.status.toLowerCase() === "draft"
+                  ? "draft"
+                  : "pending"
+              }`}
+            >
+              <span className="dot"></span>
+              {` ${invoice.status.toLowerCase()}`}
+            </span>
           </div>
+
           <div className="buttons-section">
             <div className="edit-button">Edit</div>
             <div className="delete-button" onClick={() => setShowModal(true)}>

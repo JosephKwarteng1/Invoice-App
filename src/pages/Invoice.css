@@ -73,3 +73,25 @@
 .dropdown-menu li {
   list-style-type: none;
 }
+.empty-invoice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+.empty-invoice-text {
+  font-family: "SpartanBold";
+  font-size: 25px;
+  color: var(--empty-invoice-text2);
+}
+.create-invoice-text {
+  color: #888eb0;
+  text-align: center;
+  letter-spacing: -0.25px;
+  color: var(--create-invoice-text2);
+}
+/* .total-invoice {
+  margin-left: 460px;
+  margin-top: 20px;
+} */
