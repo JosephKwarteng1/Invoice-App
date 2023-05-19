@@ -80,11 +80,13 @@
 .invoice-payment {
   font-size: 12px;
   line-height: 15px;
+  letter-spacing: -0.8px;
   color: #888eb0;
 }
 .invoice-name {
   font-size: 12px;
   line-height: 15px;
+  letter-spacing: -0.25px;
   color: #888eb0;
 }
 

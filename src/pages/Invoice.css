@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 53%;
   margin: 2rem auto;
   background-color: transparent;
 }
@@ -18,55 +18,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2rem;
+  padding: 0.7rem;
   background-color: #7c5dfa;
   color: white;
   font-size: 1rem;
   font-weight: bolder;
-  border-radius: 50px;
+  border-radius: 170px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   margin-left: auto;
 }
-
-.invoice-actions::before {
-  content: "";
-  width: 20px;
-  height: 20px;
+.circle {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
-  background-color: white;
-  left: 0;
-  transform: translateX(-50%);
+  background-color: rgb(255, 255, 255);
+  color: #7c5dfa;
+  text-align: center;
+  line-height: 37px;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 24px;
 }
 
-.invoice-actions::before::after {
-  content: "+";
-  color: #7c5dfa;
-  font-size: 1.2rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .invoice-actions:hover {
   background-color: #9277ff;
 }
 .invoice-filter {
   font-family: "spartanBold";
   color: var(--invoice-filter-color2);
-  margin-left: 410px;
+  margin-left: 470px;
 }
 .filter-arrow {
   margin-left: 25px;
 }
+
 .dropdown-menu {
+  position: absolute;
   width: 192px;
   height: 128px;
-  top: 100%;
-  right: 0;
-  background: var(--drop-down-color);
+  right: 660px;
+  top: 100px;
+  background: #ffffff;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   border-radius: 8px;
 }
+.draft-section {
+  position: absolute;
+  width: 63px;
+  height: 16px;
+  left: 764px;
+  top: 156px;
+}
+
 .dropdown-menu li {
   margin-bottom: 8px;
 }

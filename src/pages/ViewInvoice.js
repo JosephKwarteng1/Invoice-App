@@ -67,7 +67,7 @@ const ViewInvoice = () => {
             </div>
             <div className="form-group">
               <label htmlFor="billFromPostCode">
-                <span> Post Code </span>
+                <span className="bill-from-postcode"> Post Code </span>
               </label>
               <input
                 type="text"
@@ -79,7 +79,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billFromCountry">
                 {" "}
-                <span> Country </span>{" "}
+                <span className="bill-from-country"> Country </span>{" "}
               </label>
               <input
                 type="text"
@@ -91,8 +91,8 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToName">
                 {" "}
-                <span> Bill To </span>
-                <span> Client's Name </span>
+                <span className="bill-to-name"> Bill To </span>
+                <span className="bill-to-client"> Client's Name </span>
               </label>
               <input
                 type="text"
@@ -104,7 +104,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToEmail">
                 {" "}
-                <span> Client's Email </span>{" "}
+                <span className="bill-to-Email"> Client's Email </span>{" "}
               </label>
               <input
                 type="email"
@@ -116,7 +116,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToStreet">
                 {" "}
-                <span> Street Address </span>{" "}
+                <span className="bill-to-street"> Street Address </span>{" "}
               </label>
               <input
                 type="text"
@@ -128,7 +128,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToCity">
                 {" "}
-                <span> City</span>
+                <span className="bill-to-city"> City</span>
               </label>
               <input
                 type="text"
@@ -140,7 +140,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToPostCode">
                 {" "}
-                <span> Post Code</span>{" "}
+                <span className="bill-to-postcode"> Post Code</span>{" "}
               </label>
               <input
                 type="text"
@@ -152,7 +152,7 @@ const ViewInvoice = () => {
             <div className="form-group">
               <label htmlFor="billToCountry">
                 {" "}
-                <span> country </span>{" "}
+                <span className="bill-to-country"> country </span>{" "}
               </label>
               <input
                 type="text"
@@ -162,7 +162,10 @@ const ViewInvoice = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="invoiceDate">Invoice Date</label>
+              <label htmlFor="invoiceDate">
+                {" "}
+                <span className="invoice-date"> Invoice Date </span>
+              </label>
               <input
                 type="text"
                 id="invoiceDate"
@@ -171,7 +174,10 @@ const ViewInvoice = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="paymentTerms">Payment Terms</label>
+              <label htmlFor="paymentTerms">
+                {" "}
+                <span className="payment-terms"> Payment Terms </span>
+              </label>
               <input
                 type="text"
                 id="paymentTerms"
@@ -180,7 +186,12 @@ const ViewInvoice = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="projectDescription">Project / Description</label>
+              <label htmlFor="projectDescription">
+                {" "}
+                <span className="project-description">
+                  Project / Description
+                </span>
+              </label>
               <textarea
                 id="projectDescription"
                 name="projectDescription"

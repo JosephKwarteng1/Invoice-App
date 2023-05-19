@@ -28,7 +28,6 @@ const Invoice = () => {
 
   return (
     <>
-      {/* <InvoiceCard /> */}
       <SideNav />
       {/* <p className="total-invoice">There are 7 invoices</p> */}
       <div className="main-container">
@@ -41,11 +40,17 @@ const Invoice = () => {
           alt="arrow-down"
           onClick={handleDropdownToggle}
         />
+
         {isDropdownOpen && (
           <ul className="dropdown-menu">
             <li>
               <label>
-                <input type="checkbox" name="status" value="draft" />
+                <input
+                  className="draft-section"
+                  type="checkbox"
+                  name="status"
+                  value="draft"
+                />
                 Draft
               </label>
             </li>
@@ -63,7 +68,10 @@ const Invoice = () => {
             </li>
           </ul>
         )}
-        <p className="invoice-actions">New Invoice</p>
+        <p class="invoice-actions">
+          <span class="circle">+</span>
+          New Invoice
+        </p>
       </div>
 
       <InvoiceButton />

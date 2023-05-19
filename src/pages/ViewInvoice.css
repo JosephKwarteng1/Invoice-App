@@ -38,7 +38,9 @@
 .status-section {
   display: flex;
   gap: 10px;
+  color: #858bb2;
 }
+
 .buttons-section {
   display: flex;
   gap: 10px;
