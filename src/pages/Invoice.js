@@ -10,6 +10,7 @@ import ArrowDown from "../assets/icon-arrow-down.svg";
 const Invoice = () => {
   const [invoices, setInvoice] = useState([]);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
   useEffect(() => {
     const fetchInvoice = async () => {
       await axios
@@ -24,12 +25,16 @@ const Invoice = () => {
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   console.log(invoices);
 
   return (
     <>
       <SideNav />
-      {/* <p className="total-invoice">There are 7 invoices</p> */}
+
       <div className="main-container">
         <h1 className="title">Invoices</h1>
 
@@ -44,25 +49,38 @@ const Invoice = () => {
         {isDropdownOpen && (
           <ul className="dropdown-menu">
             <li>
-              <label>
+              <label className="filter-label">
                 <input
-                  className="draft-section"
                   type="checkbox"
                   name="status"
                   value="draft"
+                  checked={selectedOption === "Draft"}
+                  onChange={handleOptionChange}
                 />
                 Draft
               </label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="status" value="pending" />
+              <label className="filter-label">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="pending"
+                  checked={selectedOption === "Pending"}
+                  onChange={handleOptionChange}
+                />
                 Pending
               </label>
             </li>
             <li>
-              <label>
-                <input type="check" name="status" value="paid" />
+              <label className="filter-label">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="paid"
+                  checked={selectedOption === "Paid"}
+                  onChange={handleOptionChange}
+                />
                 Paid
               </label>
             </li>

@@ -473,104 +473,57 @@
   background-color: #ec5757;
   color: #ffffff;
 }
-.bill-from {
-  top: calc(50% - 15px / 2 - 97px);
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  margin-bottom: 5px;
-  letter-spacing: -0.25px;
-  color: #7c5dfa;
+.modal-header {
+  font-family: "SpartanBold";
+  margin-left: 40px;
+  margin: 0, 35px;
 }
-.street-address {
-  top: calc(50% - 15px / 2 - 29px);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  color: #7e88c3;
-  margin-left: 30px;
-}
-.input-area {
-  background: #ffffff;
-  border: 1px solid #dfe3fa;
-  border-radius: 4px;
-  box-sizing: border-box;
-  height: 50px;
-  width: 650px;
-  margin-left: 30px;
-  margin-top: 10px;
+/* .bill-from-container {
+  margin: 0, 35px;
+} */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
+.address-label {
+  margin-bottom: 6px;
+}
+
+.input-boxes {
+  background: var(--input-box-color);
+  border: 1px solid var(--input-box-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--font-color-light);
+  color-scheme: var(--date-icon-color);
+  width: 150px;
+  height: 30px;
+  margin: 4px;
+  margin-right: 0px;
+}
+.bill-row {
+  display: flex;
+  gap: 45px;
+  width: 85%;
+}
+.bill-row input {
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
 }
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  max-width: 500px;
+.fill {
+  width: 85%;
 }
-
-.modal h2 {
-  margin-top: 0;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label span {
-  font-weight: bold;
-  margin-right: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
+/* .bill-from-street-text-area {
   border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.form-group .input-area {
-  height: 40px;
-}
-
-.form-group .city-text-area {
-  width: 70%;
-}
-
-.form-group .bill-from {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.form-group .bill-to {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
+  padding: 12px 250px;
+  margin: 8px 0px;
+  text-align: left;
+  margin-left: auto;
+} */
+.address-section {
+  display: flex;
 }

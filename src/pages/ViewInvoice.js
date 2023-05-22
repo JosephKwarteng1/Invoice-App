@@ -9,11 +9,36 @@ import "./ViewInvoice.css";
 const ViewInvoice = () => {
   const { state } = useLocation();
   const [showEditModal, setShowEditModal] = useState(false);
+  const [sendersStreet, setSendersStreet] = useState(
+    state.senderAddress.street
+  );
+  const [sendersCity, setSendersCity] = useState(state.senderAddress.city);
+  const [sendersPostCode, setSendersPostCode] = useState(
+    state.senderAddress.postCode
+  );
+  const [sendersCountry, setSendersCountry] = useState(
+    state.senderAddress.country
+  );
+  const [clientName, setClientName] = useState(state.clientName);
+  const [clientEmail, setClientEmail] = useState(state.clientEmail);
+  const [clientStreet, setClientStreet] = useState(state.clientAddress.street);
+  const [clientCity, setClientCity] = useState(state.clientAddress.city);
+  const [clientPostCode, setClientPostCode] = useState(
+    state.clientAddress.postCode
+  );
+  const [clientCountry, setClientCountry] = useState(
+    state.clientAddress.country
+  );
+  const [paymentDue, setPaymentDue] = useState(state.paymentDue);
+  const [paymentTerms, setPaymentTerms] = useState(state.paymentTerms);
+  const [description, setDescription] = useState(state.description);
 
   const handleEditModal = () => {
     setShowEditModal(true);
   };
-
+  const handleShowModal = () => {
+    setShowEditModal(true);
+  };
   const handleCloseEditModal = () => {
     setShowEditModal(false);
   };
@@ -23,204 +48,264 @@ const ViewInvoice = () => {
   };
 
   const handleSaveChanges = () => {
+    setShowEditModal(false);
     // Handle saving changes logic here
+  };
+
+  const editInvoice = () => {
+    const updatedInvoiceData = {
+      sendersStreet,
+      sendersCity,
+      sendersPostCode,
+      sendersCountry,
+      clientName,
+      clientEmail,
+      clientStreet,
+      clientCity,
+      clientPostCode,
+      clientCountry,
+      paymentDue,
+      paymentTerms,
+      description,
+    };
+
+    // Update the invoice data in the state with the new values
+    // Implement your logic here to update the invoice data
+
+    // Close the edit modal
     setShowEditModal(false);
   };
 
-  const invoice = state;
   return (
     <div>
       <SideNav />
       {showEditModal && (
         <Modal show={showEditModal} handleClose={handleCloseEditModal}>
-          <h2>Edit #{invoice.id} </h2>
+          {/* <h2 className="modal-header">Edit #{invoice.id} </h2> */}
+          <h5>Edit #{state?.id}</h5>
           <form>
-            <div className="form-group">
+            <div className="bill-from">
+              <p>Bill From</p>
               <div>
-                <span className="bill-from">Bill From</span>
+                <label>Street Address</label>
+                <br />
+                <input
+                  type="text"
+                  className="input-boxes fill"
+                  value={sendersStreet}
+                  onChange={(e) => setSendersStreet(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="bill-row">
+                <div>
+                  <label>City</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={sendersCity}
+                    onChange={(e) => setSendersCity(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Post Code</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={sendersPostCode}
+                    onChange={(e) => setSendersPostCode(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Country</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={sendersCountry}
+                    onChange={(e) => setSendersCountry(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="bill-to">
+              <p>Bill To</p>
+              <div>
+                <label>Client Name</label>
+                <br />
+                <input
+                  type="text"
+                  className="input-boxes fill"
+                  value={clientName}
+                  onChange={(e) => setClientName(e.target.value)}
+                  required
+                />
               </div>
               <div>
-                <label htmlFor="billFromStreet" className="street-address">
-                  Street Address
-                </label>
+                <label>Client's Email</label>
+                <br />
+                <input
+                  type="text"
+                  className="input-boxes fill"
+                  placeholder="e.g email@example.com"
+                  value={clientEmail}
+                  onChange={(e) => setClientEmail(e.target.value)}
+                  required
+                />
               </div>
-              <input
-                className="input-area"
-                type="text"
-                id="billFromStreet"
-                name="billFromStreet"
-                defaultValue="19 Union Terrace"
-              />
+              <div>
+                <label>Street Address</label>
+                <br />
+                <input
+                  type="text"
+                  className="input-boxes fill"
+                  value={clientStreet}
+                  onChange={(e) => setClientStreet(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="bill-row">
+                <div>
+                  <label>City</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={clientCity}
+                    onChange={(e) => setClientCity(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Post Code</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={clientPostCode}
+                    onChange={(e) => setClientPostCode(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Country</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="input-boxes"
+                    value={clientCountry}
+                    onChange={(e) => setClientCountry(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
             </div>
-
-            <div className="form-group">
-              <label htmlFor="billFromCity">
-                <span className="city"> City </span>
-              </label>
-              <input
-                className="city-text-area"
-                type="text"
-                id="billFromCity"
-                name="billFromCity"
-                defaultValue="London"
-              />
+            <div className="bill-row">
+              <div>
+                <label>Invoice Date</label>
+                <input
+                  type="date"
+                  className="input-boxes"
+                  value={paymentDue}
+                  onChange={(e) => setPaymentDue(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label>Payment Terms</label>
+                <select
+                  onChange={(e) =>
+                    setPaymentTerms(
+                      parseInt(e.target.value.substring(3, 6).trim())
+                    )
+                  }
+                  value={paymentTerms}
+                  required
+                >
+                  <option>Net 1 Day</option>
+                  <option>Net 7 Day</option>
+                  <option>Net 14 Day</option>
+                  <option>Net 30 Day</option>
+                </select>
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="billFromPostCode">
-                <span className="bill-from-postcode"> Post Code </span>
-              </label>
-              <input
-                type="text"
-                id="billFromPostCode"
-                name="billFromPostCode"
-                defaultValue="E1 3EZ"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="billFromCountry">
-                {" "}
-                <span className="bill-from-country"> Country </span>{" "}
-              </label>
-              <input
-                type="text"
-                id="billFromCountry"
-                name="billFromCountry"
-                defaultValue="United Kingdom"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="billToName">
-                {" "}
-                <span className="bill-to-name"> Bill To </span>
-                <span className="bill-to-client"> Client's Name </span>
-              </label>
-              <input
-                type="text"
-                id="billToName"
-                name="billToName"
-                defaultValue="Alex Grim"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="billToEmail">
-                {" "}
-                <span className="bill-to-Email"> Client's Email </span>{" "}
-              </label>
-              <input
-                type="email"
-                id="billToEmail"
-                name="billToEmail"
-                defaultValue="alexgrim@mail.com"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="billToStreet">
-                {" "}
-                <span className="bill-to-street"> Street Address </span>{" "}
-              </label>
-              <input
-                type="text"
-                id="billToStreet"
-                name="billToStreet"
-                defaultValue="84 Church Way"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="billToCity">
-                {" "}
-                <span className="bill-to-city"> City</span>
-              </label>
+            <div>
+              <label>Project Description</label>
               <input
                 type="text"
-                id="billToCity"
-                name="billToCity"
-                defaultValue="Bradford"
+                className="input-boxes fill"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="billToPostCode">
-                {" "}
-                <span className="bill-to-postcode"> Post Code</span>{" "}
-              </label>
-              <input
-                type="text"
-                id="billToPostCode"
-                name="billToPostCode"
-                defaultValue="BD1 9PB"
-              />
+            <div className="item-list-btn" onClick={handleShowModal}>
+              + Add New Items
             </div>
-            <div className="form-group">
-              <label htmlFor="billToCountry">
-                {" "}
-                <span className="bill-to-country"> country </span>{" "}
-              </label>
-              <input
-                type="text"
-                id="billToCountry"
-                name="billToCountry"
-                defaultValue="United Kingdom"
-              />
+            <div className="action-container action-btn-wrapper">
+              <div className="action-btn">
+                {/* <div>
+                  <Button color="var(--primary-color)">Cancel</Button>
+                  <Button
+                    hover_color="var(--mark-hover)"
+                    color="var(--mark-color)"
+                    handleAction={editInvoice}
+                  >
+                    Save Changes
+                  </Button>
+                </div> */}
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="invoiceDate">
-                {" "}
-                <span className="invoice-date"> Invoice Date </span>
-              </label>
-              <input
-                type="text"
-                id="invoiceDate"
-                name="invoiceDate"
-                defaultValue="21 Aug 2021"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="paymentTerms">
-                {" "}
-                <span className="payment-terms"> Payment Terms </span>
-              </label>
-              <input
-                type="text"
-                id="paymentTerms"
-                name="paymentTerms"
-                defaultValue="Net 30 Days"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="projectDescription">
-                {" "}
-                <span className="project-description">
-                  Project / Description
+            <div className="responsive-action-btn-wrapper">
+              <div className="responsive-action-btn">
+                <span>
+                  <div>
+                    {/* <Button
+                      color="var(--primary-color)"
+                      handleAction={() => navigate("/")}
+                    >
+                      Cancel
+                    </Button> */}
+                    {/* <Button
+                      color="var(--mark-color)"
+                      handleAction={editInvoice}
+                    >
+                      Save Changes
+                    </Button> */}
+                  </div>
                 </span>
-              </label>
-              <textarea
-                id="projectDescription"
-                name="projectDescription"
-                defaultValue="Lorem Ipsum Dolor"
-              />
+              </div>
             </div>
           </form>
           <button onClick={handleSaveChanges}>Save Changes</button>
         </Modal>
       )}
+
       <div className="go-back" onClick={goBack}>
         <img className="arrow-img" src={ArrowLeft} alt="Go back" />
         <p className="go-back-text">Go back</p>
       </div>
+
       <div className="card-container">
         <div className="buttons-container">
           <div className="status-section">
             <p className="status">Status</p>
             <span
               className={`invoice-status ${
-                invoice.status.toLowerCase() === "paid"
+                state.status.toLowerCase() === "paid"
                   ? "paid"
-                  : invoice.status.toLowerCase() === "draft"
+                  : state.status.toLowerCase() === "draft"
                   ? "draft"
                   : "pending"
               }`}
             >
               <span className="dot"></span>
-              {` ${invoice.status.toLowerCase()}`}
+              {` ${state.status.toLowerCase()}`}
             </span>
           </div>
 
@@ -235,6 +320,7 @@ const ViewInvoice = () => {
           </div>
         </div>
       </div>
+
       <div className="invoice-container">
         <div className="header">
           <div className="header-left">
@@ -253,6 +339,7 @@ const ViewInvoice = () => {
             </div>
           </div>
         </div>
+
         <div className="bill-info">
           <div className="invoice-date">
             <p>Invoice Date</p>
@@ -260,6 +347,7 @@ const ViewInvoice = () => {
             <p className="payment-date">Payment Due</p>
             <h4 className="payment-due">{state.paymentDue}</h4>
           </div>
+
           <div className="bill-to">
             <p>Bill To</p>
             <h4 className="bill-to-name">{state.clientName}</h4>
@@ -270,11 +358,13 @@ const ViewInvoice = () => {
             </p>
             <p className="bill-to-country">{state.clientAddress.country}</p>
           </div>
+
           <div className="sent-to">
             <p>Sent To</p>
             <h4 className="sent-to-email">{state.clientEmail}</h4>
           </div>
         </div>
+
         <div className="small-container">
           <div className="items">
             <div className="item-header">
@@ -283,6 +373,7 @@ const ViewInvoice = () => {
               <p>Price</p>
               <p>Total</p>
             </div>
+
             <div className="item-list">
               <div className="item-row">
                 <p className="item-one">Banner Design</p>
@@ -290,6 +381,7 @@ const ViewInvoice = () => {
                 <p className="price-one">£ 156.00</p>
                 <p className="total-one">£ 156.00</p>
               </div>
+
               <div className="item-row">
                 <p className="item-two">Email Design</p>
                 <p className="qty-two">2</p>

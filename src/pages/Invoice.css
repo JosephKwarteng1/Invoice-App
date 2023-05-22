@@ -57,10 +57,11 @@
 .dropdown-menu {
   position: absolute;
   width: 192px;
-  height: 128px;
+  height: 170px;
   right: 660px;
   top: 100px;
-  background: #ffffff;
+  background-color: var(--card-color2);
+  color: var(--font-color-white);
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   border-radius: 8px;
 }
@@ -71,9 +72,36 @@
   left: 764px;
   top: 156px;
 }
+input[type="checkbox"] {
+  display: none;
+}
+.filter-label {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-family: "SpartanBold";
+}
+.filter-label:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  bottom: 0%;
+  background: #dfe3fa;
+  border-radius: 4px;
+}
 
+label:hover:before {
+  border: 1px solid #7c5dfa;
+  transition: ease-in;
+}
 .dropdown-menu li {
-  margin-bottom: 8px;
+  margin-top: 30px;
+  margin-bottom: 23px;
 }
 .dropdown-menu li {
   list-style-type: none;
@@ -88,6 +116,7 @@
 .empty-invoice-text {
   font-family: "SpartanBold";
   font-size: 25px;
+  margin-top: 80px;
   color: var(--empty-invoice-text2);
 }
 .create-invoice-text {
