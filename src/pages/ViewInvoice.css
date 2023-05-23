@@ -473,14 +473,14 @@
   background-color: #ec5757;
   color: #ffffff;
 }
-.modal-header {
+.section-id {
   font-family: "SpartanBold";
-  margin-left: 40px;
-  margin: 0, 35px;
+  color: var(--font-color-white);
 }
-/* .bill-from-container {
-  margin: 0, 35px;
-} */
+
+.bill-from {
+  color: var(--secondary-color);
+}
 .container {
   display: flex;
   flex-direction: row;
@@ -517,13 +517,43 @@
 .fill {
   width: 85%;
 }
-/* .bill-from-street-text-area {
-  border-radius: 4px;
-  padding: 12px 250px;
-  margin: 8px 0px;
-  text-align: left;
-  margin-left: auto;
-} */
-.address-section {
+.section-item {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+.item-list {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+}
+
+.total-input-boxes {
+  width: 70%;
+  /* gap: 50px; */
+}
+.qty-input-boxes {
+  width: 50px;
+  height: 50px;
+}
+/* .item-section {
+  justify-content: space-between;
+} */

@@ -52,40 +52,15 @@ const ViewInvoice = () => {
     // Handle saving changes logic here
   };
 
-  const editInvoice = () => {
-    const updatedInvoiceData = {
-      sendersStreet,
-      sendersCity,
-      sendersPostCode,
-      sendersCountry,
-      clientName,
-      clientEmail,
-      clientStreet,
-      clientCity,
-      clientPostCode,
-      clientCountry,
-      paymentDue,
-      paymentTerms,
-      description,
-    };
-
-    // Update the invoice data in the state with the new values
-    // Implement your logic here to update the invoice data
-
-    // Close the edit modal
-    setShowEditModal(false);
-  };
-
   return (
     <div>
       <SideNav />
       {showEditModal && (
         <Modal show={showEditModal} handleClose={handleCloseEditModal}>
-          {/* <h2 className="modal-header">Edit #{invoice.id} </h2> */}
-          <h5>Edit #{state?.id}</h5>
+          <h2 className="section-id">Edit #{state?.id}</h2>
           <form>
-            <div className="bill-from">
-              <p>Bill From</p>
+            <div className="section-bill-from">
+              <h5 className="bill-from">Bill From</h5>
               <div>
                 <label>Street Address</label>
                 <br />
@@ -224,6 +199,8 @@ const ViewInvoice = () => {
                       parseInt(e.target.value.substring(3, 6).trim())
                     )
                   }
+                  type="payment-terms"
+                  className="input-boxes"
                   value={paymentTerms}
                   required
                 >
@@ -244,6 +221,68 @@ const ViewInvoice = () => {
                 required
               />
             </div>
+            <div className="section-item">
+              <div className="item-list">Item List</div>
+              <div className="item-header">
+                <div className="item-name">Item Name</div>
+                <div className="qty smaller">Qty.</div>
+                <div className="price">Price</div>
+                <div className="total">Total</div>
+              </div>
+              <div className="item">
+                <div className="item-container">
+                  <div className="item-name">
+                    <input
+                      type="text"
+                      className="input-boxes"
+                      placeholder="Banner Design"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="qty-input-boxes"
+                  placeholder="Qty."
+                />
+                <input
+                  type="text"
+                  className="price-input-boxes"
+                  placeholder="Price"
+                />
+                <input
+                  type="text"
+                  className="total-input-boxes"
+                  placeholder="Total"
+                />
+              </div>
+              <div className="item">
+                <div className="item-container">
+                  <div className="item-name">
+                    <input
+                      type="text"
+                      className="input-boxes"
+                      placeholder="Email Design"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="qty-input-boxes"
+                  placeholder="Qty."
+                />
+                <input
+                  type="text"
+                  className="price-input-boxes"
+                  placeholder="Price"
+                />
+                <input
+                  type="text"
+                  className="total-input-boxes"
+                  placeholder="Total"
+                />
+              </div>
+            </div>
+
             <div className="item-list-btn" onClick={handleShowModal}>
               + Add New Items
             </div>
