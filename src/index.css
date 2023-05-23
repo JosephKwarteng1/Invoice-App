@@ -49,7 +49,7 @@
   --create-invoice-text2: #888eb0;
   --back-text-color: #7e88c3;
   --dropdown-menu-color: #ffffff;
-  --bill-row: #7e88c3;
+  --modal-text-color: #7e88c3;
 }
 [data-theme="dark"] {
   --primary-color: #373b53;
@@ -81,7 +81,7 @@
   --empty-invoice-text2: #ffffff;
   --create-invoice-text2: #dfe3fa;
   --dropdown-menu-color2: #252945;
-  --bill-row-dark: #dfe3fa;
+  --modal-text-color2: #dfe3fa;
 }
 
 body {

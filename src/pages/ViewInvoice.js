@@ -109,7 +109,7 @@ const ViewInvoice = () => {
               </div>
             </div>
             <div className="bill-to">
-              <p>Bill To</p>
+              <p className="bill-to-text">Bill To</p>
               <div>
                 <label>Client Name</label>
                 <br />
@@ -212,7 +212,7 @@ const ViewInvoice = () => {
               </div>
             </div>
             <div>
-              <label>Project Description</label>
+              <label className="project-dscription">Project Description</label>
               <input
                 type="text"
                 className="input-boxes fill"
@@ -229,60 +229,61 @@ const ViewInvoice = () => {
                 <div className="price">Price</div>
                 <div className="total">Total</div>
               </div>
-              <div className="item">
-                <div className="item-container">
-                  <div className="item-name">
-                    <input
-                      type="text"
-                      className="input-boxes"
-                      placeholder="Banner Design"
-                    />
+              <div className="section-grid">
+                <div className="item">
+                  <div className="item-container">
+                    <div className="item-name">
+                      <input
+                        type="text"
+                        className="input-boxes"
+                        placeholder="Banner Design"
+                      />
+                    </div>
                   </div>
+                  <input
+                    type="text"
+                    className="qty-input-boxes"
+                    placeholder="Qty."
+                  />
+                  <input
+                    type="text"
+                    className="price-input-boxes"
+                    placeholder="Price"
+                  />
+                  <input
+                    type="text"
+                    className="total-input-boxes"
+                    placeholder="Total"
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="qty-input-boxes"
-                  placeholder="Qty."
-                />
-                <input
-                  type="text"
-                  className="price-input-boxes"
-                  placeholder="Price"
-                />
-                <input
-                  type="text"
-                  className="total-input-boxes"
-                  placeholder="Total"
-                />
-              </div>
-              <div className="item">
-                <div className="item-container">
-                  <div className="item-name">
-                    <input
-                      type="text"
-                      className="input-boxes"
-                      placeholder="Email Design"
-                    />
+                <div className="item">
+                  <div className="item-container">
+                    <div className="item-name">
+                      <input
+                        type="text"
+                        className="input-boxes"
+                        placeholder="Email Design"
+                      />
+                    </div>
                   </div>
+                  <input
+                    type="text"
+                    className="qty-input-boxes"
+                    placeholder="Qty."
+                  />
+                  <input
+                    type="text"
+                    className="price-input-boxes"
+                    placeholder="Price"
+                  />
+                  <input
+                    type="text"
+                    className="total-input-boxes"
+                    placeholder="Total"
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="qty-input-boxes"
-                  placeholder="Qty."
-                />
-                <input
-                  type="text"
-                  className="price-input-boxes"
-                  placeholder="Price"
-                />
-                <input
-                  type="text"
-                  className="total-input-boxes"
-                  placeholder="Total"
-                />
               </div>
             </div>
-
             <div className="item-list-btn" onClick={handleShowModal}>
               + Add New Items
             </div>
