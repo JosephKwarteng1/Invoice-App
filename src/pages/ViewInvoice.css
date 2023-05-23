@@ -518,16 +518,13 @@
   top: 15px;
   font-size: 12px;
   color: #7e88c3;
-  /* transform: translateY(50%);  */
+  transform: translateY(50%);
 }
 .bill-row input {
   width: 100%;
 }
 .fill {
   width: 85%;
-}
-.item-list {
-  margin-top: 40px;
 }
 .bill-to label {
   position: relative;
