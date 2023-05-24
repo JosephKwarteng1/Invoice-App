@@ -12,6 +12,7 @@ const ViewInvoice = () => {
   const { state } = useLocation();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isPaid, setIsPaid] = useState(false);
   const [sendersStreet, setSendersStreet] = useState(
     state.senderAddress.street
   );
@@ -35,6 +36,10 @@ const ViewInvoice = () => {
   const [paymentDue, setPaymentDue] = useState(state.paymentDue);
   const [paymentTerms, setPaymentTerms] = useState(state.paymentTerms);
   const [description, setDescription] = useState(state.description);
+
+  const handleMarkAsPaid = () => {
+    setIsPaid(true);
+  };
 
   const handleEditModal = () => {
     setShowEditModal(true);
@@ -63,6 +68,15 @@ const ViewInvoice = () => {
     // Handle saving changes logic here
   };
 
+  const handleDeleteInvoice = () => {
+    // Perform delete logic here
+    // For now, let's just log a message to simulate the delete
+    console.log("Deleting invoice: ", state.id);
+
+    // Close the delete modal
+    handleCloseDeleteModal();
+  };
+
   return (
     <div>
       <SideNav />
@@ -76,8 +90,12 @@ const ViewInvoice = () => {
             Are you sure you want to delete invoice #XM9141? This action cannot
             be undone.
           </p>
-          <button className="btn-cancel">Cancel</button>
-          <button className="btn-delete">Delete</button>
+          <button className="btn-cancel" onClick={handleCloseDeleteModal}>
+            Cancel
+          </button>
+          <button className="btn-delete" onClick={handleDeleteInvoice}>
+            Delete
+          </button>
         </DeleteModal>
       )}
       {showEditModal && (
@@ -383,7 +401,13 @@ const ViewInvoice = () => {
               Delete
             </div>
 
-            <div className="mark-paid-button">Mark as Paid</div>
+            {isPaid ? (
+              <div className="mark-paid-button disabled">Marked as Paid</div>
+            ) : (
+              <div className="mark-paid-button" onClick={handleMarkAsPaid}>
+                Mark as Paid
+              </div>
+            )}
           </div>
         </div>
       </div>
