@@ -3,12 +3,15 @@ import { useLocation } from "react-router-dom";
 import SideNav from "../components/SideNav";
 import ArrowLeft from "../assets/icon-arrow-left.svg";
 import Modal from "./Modal";
+import DeleteModal from "../components/DeleteModal";
+
 import "./Modal.css";
 import "./ViewInvoice.css";
 
 const ViewInvoice = () => {
   const { state } = useLocation();
   const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [sendersStreet, setSendersStreet] = useState(
     state.senderAddress.street
   );
@@ -42,7 +45,15 @@ const ViewInvoice = () => {
   const handleCloseEditModal = () => {
     setShowEditModal(false);
   };
-
+  const handleDeleteModal = () => {
+    setShowDeleteModal(true);
+  };
+  const handlShowDeleteModal = () => {
+    setShowDeleteModal(true);
+  };
+  const handleCloseDeleteModal = () => {
+    setShowDeleteModal(false);
+  };
   const goBack = () => {
     window.history.back();
   };
@@ -55,6 +66,20 @@ const ViewInvoice = () => {
   return (
     <div>
       <SideNav />
+      {showDeleteModal && (
+        <DeleteModal
+          show={showDeleteModal}
+          handleClose={handleCloseDeleteModal}
+        >
+          <h2 className="confirm-deletion">Confirm Deletion</h2>
+          <p className="deletion-text">
+            Are you sure you want to delete invoice #XM9141? This action cannot
+            be undone.
+          </p>
+          <button className="btn-cancel">Cancel</button>
+          <button className="btn-delete">Delete</button>
+        </DeleteModal>
+      )}
       {showEditModal && (
         <Modal show={showEditModal} handleClose={handleCloseEditModal}>
           <h2 className="section-id">Edit #{state?.id}</h2>
@@ -354,7 +379,9 @@ const ViewInvoice = () => {
               Edit
             </div>
 
-            <div className="delete-button">Delete</div>
+            <div className="delete-button" onClick={handleDeleteModal}>
+              Delete
+            </div>
 
             <div className="mark-paid-button">Mark as Paid</div>
           </div>
