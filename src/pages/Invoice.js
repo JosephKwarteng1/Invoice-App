@@ -62,10 +62,6 @@ const Invoice = () => {
   const [paymentTerms, setPaymentTerms] = useState(initialState.paymentTerms);
   const [description, setDescription] = useState(initialState.description);
 
-  const handleNewInvoiceModal = () => {
-    setShowNewInvoiceModal(true);
-  };
-
   const handleShowModal = () => {
     setShowNewInvoiceModal(true);
   };
@@ -88,10 +84,10 @@ const Invoice = () => {
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
-
   console.log(invoices);
 
   return (
@@ -330,10 +326,13 @@ const Invoice = () => {
           </div>
         </form>
       </Modal>
+
       <div className="main-container">
         <h1 className="title">Invoices</h1>
-
-        <p className="invoice-filter">Filter by status</p>
+        {/* <p className="total-invoices">There are 7 total invoices</p> */}
+        <p className="invoice-filter">
+          Filter <span className="filter-span">by status</span>
+        </p>
         <img
           className="filter-arrow"
           src={ArrowDown}
@@ -349,10 +348,12 @@ const Invoice = () => {
                   type="checkbox"
                   name="status"
                   value="draft"
-                  checked={selectedOption === "Draft"}
+                  checked={selectedOption === "draft"}
                   onChange={handleOptionChange}
                 />
-                Draft
+                <span onClick={handleOptionChange} value="draft">
+                  Draft
+                </span>
               </label>
             </li>
             <li>
@@ -361,10 +362,12 @@ const Invoice = () => {
                   type="checkbox"
                   name="status"
                   value="pending"
-                  checked={selectedOption === "Pending"}
+                  checked={selectedOption === "pending"}
                   onChange={handleOptionChange}
                 />
-                Pending
+                <span onClick={handleOptionChange} value="pending">
+                  Pending
+                </span>
               </label>
             </li>
             <li>
@@ -373,17 +376,19 @@ const Invoice = () => {
                   type="checkbox"
                   name="status"
                   value="paid"
-                  checked={selectedOption === "Paid"}
+                  checked={selectedOption === "paid"}
                   onChange={handleOptionChange}
                 />
-                Paid
+                <span onClick={handleOptionChange} value="paid">
+                  Paid
+                </span>
               </label>
             </li>
           </ul>
         )}
-        <p class="invoice-actions" onClick={handleShowModal}>
-          <span class="circle">+</span>
-          New Invoice
+        <p className="invoice-actions" onClick={handleShowModal}>
+          <span className="circle">+</span>
+          New <span className="invoice-span">Invoice</span>
         </p>
       </div>
 

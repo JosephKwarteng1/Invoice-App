@@ -11,13 +11,16 @@
   font-family: "SpartanBold";
   color: var(--font-color-white);
 }
-.total-invoice {
-  left: 100%;
+.total-invoices {
+  font-size: 18px;
+  margin-bottom: 20px;
+  display: block;
 }
 .invoice-actions {
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 0.7rem;
   background-color: #7c5dfa;
   color: white;
@@ -25,7 +28,7 @@
   font-weight: bolder;
   border-radius: 170px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   margin-left: auto;
 }
 .circle {
@@ -125,7 +128,107 @@ label:hover:before {
   letter-spacing: -0.25px;
   color: var(--create-invoice-text2);
 }
-/* .total-invoice {
-  margin-left: 460px;
-  margin-top: 20px;
-} */
+.section-hero {
+  color: var(--font-color-white);
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 767px) {
+  .main-container {
+    flex-direction: row;
+    width: 50%;
+    margin: 2rem 1rem;
+    margin-top: 80px;
+    font-size: 12px;
+  }
+
+  .total-invoices {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .invoice-actions {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 300px;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    width: 60px;
+  }
+  .invoice-span {
+    display: none;
+  }
+  .circle {
+    width: 30px;
+    height: 20px;
+    line-height: 30px;
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  .filter-span {
+    display: none;
+  }
+  .invoice-filter {
+    position: absolute;
+    font-size: 12px;
+    margin-left: 220px;
+    margin-top: 14px;
+  }
+  .filter-arrow {
+    position: absolute;
+    margin-left: 260px;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    width: 100%;
+    /* max-width: 300px; */
+    right: auto;
+    left: 50px;
+    /* top: auto; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .draft-section {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .empty-invoice-text {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .empty-invoice {
+    position: absolute;
+    margin-left: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 193.07px;
+    height: 160px;
+    left: 91px;
+    top: 250px;
+  }
+  .create-invoice-text {
+    position: absolute;
+    height: 31px;
+    left: 3.69%;
+    right: 3.69%;
+    margin-top: 200px;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: -0.25px;
+  }
+}

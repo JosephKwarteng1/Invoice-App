@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import SideNav from "../components/SideNav";
 import ArrowLeft from "../assets/icon-arrow-left.svg";
+import IconDelete from "../assets/delete-icon.svg";
 import Modal from "./Modal";
 import DeleteModal from "../components/DeleteModal";
 
@@ -13,6 +14,7 @@ const ViewInvoice = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
+  const [items, setItems] = useState(false);
   const [sendersStreet, setSendersStreet] = useState(
     state.senderAddress.street
   );
@@ -37,6 +39,7 @@ const ViewInvoice = () => {
   const [paymentTerms, setPaymentTerms] = useState(state.paymentTerms);
   const [description, setDescription] = useState(state.description);
 
+  // Event handlers
   const handleMarkAsPaid = () => {
     setIsPaid(true);
   };
@@ -70,7 +73,7 @@ const ViewInvoice = () => {
 
   const handleDeleteInvoice = () => {
     // Perform delete logic here
-    // For now, let's just log a message to simulate the delete
+
     console.log("Deleting invoice: ", state.id);
 
     // Close the delete modal
@@ -85,21 +88,33 @@ const ViewInvoice = () => {
           show={showDeleteModal}
           handleClose={handleCloseDeleteModal}
         >
-          <h2 className="confirm-deletion">Confirm Deletion</h2>
-          <p className="deletion-text">
+          <h2 className="custom-confirm-deletion">Confirm Deletion</h2>
+          <p className="custom-deletion-text">
             Are you sure you want to delete invoice #XM9141? This action cannot
             be undone.
           </p>
-          <button className="btn-cancel" onClick={handleCloseDeleteModal}>
+          <button
+            className="custom-btn-cancel"
+            onClick={handleCloseDeleteModal}
+          >
             Cancel
           </button>
-          <button className="btn-delete" onClick={handleDeleteInvoice}>
+          <button className="custom-btn-delete" onClick={handleDeleteInvoice}>
             Delete
           </button>
         </DeleteModal>
       )}
       {showEditModal && (
-        <Modal show={showEditModal} handleClose={handleCloseEditModal}>
+        <Modal
+          show={showEditModal}
+          dal
+          handleClose={handleCloseEditModal}
+          className="edit-modal-content"
+        >
+          {/* <div className="go-back-modal" onClick={goBack}>
+            <img className="go-back-arrow" src={ArrowLeft} alt="Go back" />
+            <p className="go-back-textt">Go back</p>
+          </div> */}
           <h2 className="section-id">Edit #{state?.id}</h2>
           <form>
             <div className="section-bill-from">
@@ -254,8 +269,8 @@ const ViewInvoice = () => {
                 </select>
               </div>
             </div>
-            <div>
-              <label className="project-dscription">Project Description</label>
+            <div className="project-description">
+              <label>Project Description</label>
               <input
                 type="text"
                 className="input-boxes fill"
@@ -266,106 +281,73 @@ const ViewInvoice = () => {
             </div>
             <div className="section-item">
               <div className="item-list">Item List</div>
-              <div className="item-header">
-                <div className="item-name">Item Name</div>
-                <div className="qty smaller">Qty.</div>
-                <div className="price">Price</div>
-                <div className="total">Total</div>
-              </div>
-              <div className="section-grid">
-                <div className="item">
-                  <div className="item-container">
-                    <div className="item-name">
-                      <input
-                        type="text"
-                        className="input-boxes"
-                        placeholder="Banner Design"
-                      />
-                    </div>
-                  </div>
-                  <input
-                    type="text"
-                    className="qty-input-boxes"
-                    placeholder="Qty."
-                  />
-                  <input
-                    type="text"
-                    className="price-input-boxes"
-                    placeholder="Price"
-                  />
-                  <input
-                    type="text"
-                    className="total-input-boxes"
-                    placeholder="Total"
-                  />
-                </div>
-                <div className="item">
-                  <div className="item-container">
-                    <div className="item-name">
-                      <input
-                        type="text"
-                        className="input-boxes"
-                        placeholder="Email Design"
-                      />
-                    </div>
-                  </div>
-                  <input
-                    type="text"
-                    className="qty-input-boxes"
-                    placeholder="Qty."
-                  />
-                  <input
-                    type="text"
-                    className="price-input-boxes"
-                    placeholder="Price"
-                  />
-                  <input
-                    type="text"
-                    className="total-input-boxes"
-                    placeholder="Total"
-                  />
-                </div>
+
+              <div className="table-container">
+                <table className="items-table">
+                  <thead>
+                    <tr>
+                      <th className="item-name">Item Name</th>
+                      <th className="qty">QTY.</th>
+                      <th className="price">Price</th>
+                      <th className="total">Total</th>
+                      <th className="delete"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {state.items.length > 0
+                      ? state.items.map((e, index) => (
+                          <tr className="items-row" key={index}>
+                            <td>
+                              <input value={e.name} />
+                            </td>
+                            <td>
+                              <input value={e.quantity} />
+                            </td>
+                            <td>
+                              <input value={e.price} />
+                            </td>
+                            <td>
+                              <input value={e.total} />
+                            </td>
+                            <td>
+                              <img
+                                src={IconDelete}
+                                alt="delete icon"
+                                className="delete-icon"
+                                onClick={() => {
+                                  const updatedItems = items.filter(
+                                    (e, i) => i !== index
+                                  );
+                                  setItems(updatedItems);
+                                }}
+                              />
+                            </td>
+                          </tr>
+                        ))
+                      : null}
+                  </tbody>
+                </table>
               </div>
             </div>
+
             <div className="item-list-btn" onClick={handleShowModal}>
               + Add New Items
             </div>
             <div className="action-container action-btn-wrapper">
-              <div className="action-btn">
-                {/* <div>
-                  <Button color="var(--primary-color)">Cancel</Button>
-                  <Button
-                    hover_color="var(--mark-hover)"
-                    color="var(--mark-color)"
-                    handleAction={editInvoice}
-                  >
-                    Save Changes
-                  </Button>
-                </div> */}
-              </div>
+              <div className="action-btn"></div>
             </div>
             <div className="responsive-action-btn-wrapper">
               <div className="responsive-action-btn">
                 <span>
-                  <div>
-                    {/* <Button
-                      color="var(--primary-color)"
-                      handleAction={() => navigate("/")}
-                    >
-                      Cancel
-                    </Button> */}
-                    {/* <Button
-                      color="var(--mark-color)"
-                      handleAction={editInvoice}
-                    >
-                      Save Changes
-                    </Button> */}
-                  </div>
+                  <div></div>
                 </span>
               </div>
             </div>
           </form>
-          <button onClick={handleSaveChanges}>Save Changes</button>
+          <button className="cancel-changes-btn">Cancel</button>
+          <button className="save-changes-btn" onClick={handleSaveChanges}>
+            Save Changes
+          </button>
         </Modal>
       )}
 
@@ -432,22 +414,23 @@ const ViewInvoice = () => {
         </div>
 
         <div className="bill-info">
-          <div className="invoice-date">
-            <p>Invoice Date</p>
-            <h4 className="current-date">{state.createdAt}</h4>
-            <p className="payment-date">Payment Due</p>
-            <h4 className="payment-due">{state.paymentDue}</h4>
-          </div>
-
-          <div className="bill-to">
-            <p>Bill To</p>
-            <h4 className="bill-to-name">{state.clientName}</h4>
-            <p className="bill-to-address">{state.clientAddress.street}</p>
-            <p className="bill-to-city">{state.clientAddress.city}</p>
-            <p className="bill-to-postal-code">
-              {state.clientAddress.postCode}
-            </p>
-            <p className="bill-to-country">{state.clientAddress.country}</p>
+          <div className="custom-invoice">
+            <div className="invoice-date">
+              <p>Invoice Date</p>
+              <h4 className="current-date">{state.createdAt}</h4>
+              <p className="payment-date">Payment Due</p>
+              <h4 className="payment-due">{state.paymentDue}</h4>
+            </div>
+            <div className="custom-bill-to">
+              <p>Bill To</p>
+              <h4 className="bill-to-name">{state.clientName}</h4>
+              <p className="bill-to-address">{state.clientAddress.street}</p>
+              <p className="bill-to-city">{state.clientAddress.city}</p>
+              <p className="bill-to-postal-code">
+                {state.clientAddress.postCode}
+              </p>
+              <p className="bill-to-country">{state.clientAddress.country}</p>
+            </div>
           </div>
 
           <div className="sent-to">
@@ -484,7 +467,7 @@ const ViewInvoice = () => {
         </div>
         <div className="mini-container">
           <div className="amount-section">
-            <span>Amount due</span>
+            <span className="amount-due">Amount due</span>
             <span className="total"> £{state.total}</span>
           </div>
         </div>

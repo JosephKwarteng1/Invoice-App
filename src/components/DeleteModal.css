@@ -1,5 +1,5 @@
 .modal {
-  position: fixed;
+  /* position: fixed; */
   z-index: 9998;
   left: 0;
   top: 0;
@@ -31,5 +31,9 @@
 @media only screen and (max-width: 767px) {
   .modal-delete {
     width: 80%;
+  }
+  .modal-delete {
+    left: 40%;
+    width: 100px;
   }
 }

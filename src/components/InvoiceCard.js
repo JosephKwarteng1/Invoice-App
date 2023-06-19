@@ -26,7 +26,7 @@ const InvoiceCard = ({ invoice }) => {
         <span className="dot"></span>
         {` ${invoice.status.toLowerCase()}`}
       </span>
-      <img src={Arrow} alt="arrow-right" />
+      <img src={Arrow} alt="arrow-right" className="arrow-right" />
     </div>
   );
 };

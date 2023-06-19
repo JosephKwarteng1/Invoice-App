@@ -50,8 +50,6 @@
   padding: 0;
 }
 @media only screen and (max-width: 767px) {
-  /* Apply styles only for screen sizes up to 767px */
-
   .side-nav {
     background: var(--primary-color);
     position: fixed;
