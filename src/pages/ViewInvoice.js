@@ -111,10 +111,10 @@ const ViewInvoice = () => {
           handleClose={handleCloseEditModal}
           className="edit-modal-content"
         >
-          {/* <div className="go-back-modal" onClick={goBack}>
+          <div className="modal-go-back" onClick={goBack}>
             <img className="go-back-arrow" src={ArrowLeft} alt="Go back" />
             <p className="go-back-textt">Go back</p>
-          </div> */}
+          </div>
           <h2 className="section-id">Edit #{state?.id}</h2>
           <form>
             <div className="section-bill-from">
@@ -280,19 +280,21 @@ const ViewInvoice = () => {
               />
             </div>
             <div className="section-item">
-              <div className="item-list">Item List</div>
+              <div className="item-list">
+                Item List
+                {/* <thead>
+                  <tr>
+                    <th className="item-name">Item Name</th>
+                    <th className="item-qty">QTY.</th>
+                    <th className="item-price">Price</th>
+                    <th className="item-total">Total</th>
+                    <th className="delete"></th>
+                  </tr>
+                </thead> */}
+              </div>
 
               <div className="table-container">
                 <table className="items-table">
-                  <thead>
-                    <tr>
-                      <th className="item-name">Item Name</th>
-                      <th className="qty">QTY.</th>
-                      <th className="price">Price</th>
-                      <th className="total">Total</th>
-                      <th className="delete"></th>
-                    </tr>
-                  </thead>
                   <tbody>
                     {state.items.length > 0
                       ? state.items.map((e, index) => (
@@ -361,7 +363,7 @@ const ViewInvoice = () => {
           <div className="status-section">
             <p className="status">Status</p>
             <span
-              className={`invoice-status ${
+              className={`view-invoice-status ${
                 state.status.toLowerCase() === "paid"
                   ? "paid"
                   : state.status.toLowerCase() === "draft"

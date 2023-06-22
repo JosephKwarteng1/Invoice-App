@@ -1,5 +1,4 @@
 .modal {
-  /* position: fixed; */
   z-index: 9998;
   left: 0;
   top: 0;
@@ -26,14 +25,12 @@
   border-radius: 8px;
 }
 
-/* Add any additional styling for the delete prompt container here */
-
 @media only screen and (max-width: 767px) {
   .modal-delete {
     width: 80%;
   }
   .modal-delete {
-    left: 40%;
+    left: 50%;
     width: 100px;
   }
 }

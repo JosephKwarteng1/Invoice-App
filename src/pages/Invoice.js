@@ -31,12 +31,14 @@ const initialState = {
 
 const Invoice = () => {
   const [invoices, setInvoice] = useState([]);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [showNewInvoiceModal, setShowNewInvoiceModal] = useState(false);
   const [sendersStreet, setSendersStreet] = useState(
     initialState.senderAddress.street
   );
+
   const [sendersCity, setSendersCity] = useState(
     initialState.senderAddress.city
   );
@@ -89,6 +91,11 @@ const Invoice = () => {
     setSelectedOption(event.target.value);
   };
   console.log(invoices);
+
+  const handleSaveChanges = () => {
+    setShowEditModal(false);
+    // Handle saving changes logic here
+  };
 
   return (
     <>
@@ -264,67 +271,43 @@ const Invoice = () => {
           <div className="section-item">
             <div className="item-list">Item List</div>
             <div className="item-header">
-              <div className="item-name">Item Name</div>
               <div className="qty smaller">Qty.</div>
               <div className="price">Price</div>
               <div className="total">Total</div>
             </div>
             <div className="section-grid">
+              <div className="item-name">Item Name</div>
               <div className="item">
                 <div className="item-container">
                   <div className="item-name">
                     <input
                       type="text"
                       className="input-boxes"
-                      placeholder="Banner Design"
+                      placeholder="Type an item"
                     />
                   </div>
                 </div>
-                <input
-                  type="text"
-                  className="qty-input-boxes"
-                  placeholder="Qty."
-                />
-                <input
-                  type="text"
-                  className="price-input-boxes"
-                  placeholder="Price"
-                />
-                <input
-                  type="text"
-                  className="total-input-boxes"
-                  placeholder="Total"
-                />
-              </div>
-              <div className="item">
-                <div className="item-container">
-                  <div className="item-name">
-                    <input
-                      type="text"
-                      className="input-boxes"
-                      placeholder="Email Design"
-                    />
-                  </div>
-                </div>
-                <input
-                  type="text"
-                  className="qty-input-boxes"
-                  placeholder="Qty."
-                />
-                <input
-                  type="text"
-                  className="price-input-boxes"
-                  placeholder="Price"
-                />
-                <input
-                  type="text"
-                  className="total-input-boxes"
-                  placeholder="Total"
-                />
               </div>
             </div>
           </div>
+          <div className="item-list-btn" onClick={handleShowModal}>
+            + Add New Items
+          </div>
+          <div className="action-container action-btn-wrapper">
+            <div className="action-btn"></div>
+          </div>
+          <div className="responsive-action-btn-wrapper">
+            <div className="responsive-action-btn">
+              <span>
+                <div></div>
+              </span>
+            </div>
+          </div>
         </form>
+        <button className="cancel-changes-btn">Cancel</button>
+        <button className="save-changes-btn" onClick={handleSaveChanges}>
+          Save Changes
+        </button>
       </Modal>
 
       <div className="main-container">

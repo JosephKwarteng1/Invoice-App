@@ -103,7 +103,7 @@
 
 @media only screen and (max-width: 767px) {
   .invoice-card {
-    width: calc(100vw - 100px);
+    width: 77%;
     height: 120px;
     overflow: hidden;
   }
@@ -121,29 +121,31 @@
     left: 7.34%;
     right: 74.31%;
     margin-top: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 30%;
     font-size: 12px;
     line-height: 15px;
     letter-spacing: -0.25px;
     color: var(--font-color-white);
   }
+
   .invoice-payment {
     position: absolute;
     height: 15px;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    margin-top: 15%;
+    margin-bottom: 20%;
     font-size: 12px;
     line-height: 15px;
     letter-spacing: -0.25px;
     color: var(--font-color-white);
   }
+
   .invoice-name {
     height: 15px;
     position: absolute;
     right: 7.34%;
     margin-top: 0;
-    margin-right: 20px;
-    margin-bottom: 100px;
+    margin-right: 5%;
+    margin-bottom: 25%;
     font-size: 12px;
     line-height: 15px;
     text-align: right;
@@ -152,11 +154,12 @@
 
   .invoice-status {
     display: flex;
-    margin-left: 20px;
+    margin-left: 2%;
   }
+
   .invoice-total {
     position: absolute;
-    margin-top: 60px;
+    margin-top: 25%;
     justify-content: flex-start;
   }
 }

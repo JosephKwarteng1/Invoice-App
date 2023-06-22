@@ -156,7 +156,7 @@ label:hover:before {
     justify-content: center;
     margin-top: 10px;
     margin-left: 300px;
-    padding: 0.3rem;
+    padding: 0.8rem;
     font-size: 0.8rem;
     width: 60px;
   }
@@ -164,7 +164,7 @@ label:hover:before {
     display: none;
   }
   .circle {
-    width: 30px;
+    width: 60px;
     height: 20px;
     line-height: 30px;
     font-size: 16px;
@@ -187,10 +187,8 @@ label:hover:before {
   .dropdown-menu {
     position: relative;
     width: 100%;
-    /* max-width: 300px; */
     right: auto;
     left: 50px;
-    /* top: auto; */
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -230,5 +228,9 @@ label:hover:before {
     line-height: 15px;
     text-align: center;
     letter-spacing: -0.25px;
+  }
+
+  .item-container input {
+    width: 65%;
   }
 }
